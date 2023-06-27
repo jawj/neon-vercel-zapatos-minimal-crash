@@ -1,0 +1,13 @@
+{
+  "name": "neon-vercel-zapatos-minimal-crash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.4.22",
+    "pg": "file:shims/pg",
+    "zapatos": "^6.1.4"
+  }
+}
