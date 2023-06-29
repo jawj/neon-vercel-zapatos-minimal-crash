@@ -1,7 +1,7 @@
 import * as db from 'zapatos/db';
 
 export default async (req: Request, ctx: any) => {
-  db.param(1);
+  const query = db.select('employees', { emp_no: db.sql`${db.self} < 10` }).compile();
   // ^ works fine with `vercel deploy` but causes 500 error with `vercel dev`:
   /*
   > Ready! Available at http://localhost:3000
@@ -38,7 +38,7 @@ export default async (req: Request, ctx: any) => {
   > [debug] [2023-06-27T12:27:52.912Z] Killed builder dev server with PID 18793
   */
 
-  return new Response('Hello');
+  return new Response(JSON.stringify(query, null, 2));
 }
 
 export const config = {
